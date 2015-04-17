@@ -1,0 +1,49 @@
+{
+    "name": "oa-webapp-project",
+    "version": "0.2.0",
+    "description": "This is the oa web app for Travel Global",
+    "author": "Caro Huang<caro.huang@travelglobal.com>",
+    "main": "index.js",
+    "scripts": {
+        "test": "grunt test",
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "kraken-devtools": "~1.2.1",
+        "express": "~4.11.2",
+        "kraken-js": "~1.0.3",
+        "json-stringify-safe": "~5.0.0",
+        "consolidate": "~0.10.0",
+        "swig": "~1.4.2",
+        "moment": "~2.8.4",
+        "validator": "~3.16.0",
+        "mongoose": "~3.8.12",
+        "colors": "~0.6.2",
+        "serve-favicon": "~2.1.4",
+        "fileupload": "~0.3.0",
+        "express-session": "~1.8.2",
+        "connect-redis": "~2.1.0",
+        "amqp": "~0.2.0",
+        "sync-request": "~2.0.1",
+        "nodemailer": "~0.6.3",
+        "wkhtmltopdf": "~0.1.5"
+    },
+    "removedDependencies": {
+        "engine-munger": "~0.2.0",
+        "localizr": "~0.1.0",
+        "makara": "~0.3.0",
+        "object-merge": "~2.5.1",
+        "forever": "~0.10.11",
+        "nconf": "~0.6.8",
+        "scp2": "~0.1.4",
+        "request-sync": "~1.0.0"
+    },
+    "devDependencies": {},
+    "generator-kraken": {
+        "version": "1.1.0",
+        "template": true,
+        "css": true,
+        "js": true,
+        "task": "grunt"
+    }
+}

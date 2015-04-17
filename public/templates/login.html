@@ -1,0 +1,35 @@
+<!--<div id="chartdiv"></div>-->
+<div class="row clearfix" id="userLogin">
+    <div class="column">
+        <div class="col-sm-offset-4 col-sm-4">
+            <h3 class="text-info" set-lan="pUserLogin.Login"></h3>
+        </div>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <input type="text" class="form-control" id="userName" placeholder="Id" value="{{rememberId}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <input type="password" class="form-control" id="pwd" placeholder="Password"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <label>
+                        <input type="checkbox" id="rememberId"/>
+                        <span set-lan="pUserLogin.RememberMe"/>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <button type="button" class="btn btn-primary" id="submit">
+                        <span set-lan="pUserLogin.Login"/>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

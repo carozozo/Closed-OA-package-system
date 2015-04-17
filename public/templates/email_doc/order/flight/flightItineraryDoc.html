@@ -1,0 +1,115 @@
+<link href="http://{{tg.host}}/extend_css/emailDoc.css" rel="stylesheet" type="text/css">
+<div class="orderDocContainer">
+    <div id="head">
+        <div class="half_l">
+        </div>
+        <div class="half_r">{{ FlightItinerary }}</div>
+        <div class="clear"></div>
+    </div>
+    <div id="contactInfo">
+        <div class="half_l">
+            <b>{{ passengerType }} ：</b> {{ passengerName }}<br>
+            <b>{{ EticketNo }} ：</b> {{ eTicketNo }}
+        </div>
+        <div class="half_r">
+            <b>{{ Order }} :</b> {{ orderNo }}<br>
+            <b>{{ Date }}： </b>{{ printDate }}
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="summary">
+        <div class="border_bottom">
+            {{ Itinerary }}
+        </div>
+        <div class="border_bottom">
+            <div>
+                <div class="float_l" style="margin-right:3px;">
+                    <img src="http://{{ tcfg.travelGlobalHostName }}/images/airline/{{ airlineCode }}.svg" width="20px" height="20px">
+                </div>
+                <div class="float_l">
+                    <div>
+                        <b>{{ airlineName }} {{ airlineCode }} {{ flightNumber }}</b>
+                    </div>
+                    <div class="color_grey">
+                        {{ cabinClass }}
+                        {% if aircraftName %}
+                        <span style="margin:0 10px;">|</span>
+                        {{ aircraftName }}
+                        {% endif %}
+                        <span style="margin:0 10px;">|</span>
+                        {{ stops }}
+                    </div>
+                    <div class="padding_vertical">
+                        <div>
+                            <b>{{ departureDate }}</b>
+                            <b>{{ departureTime }}</b>
+                            <span style="margin:0 10px;">|</span>
+                            <span>{{ departureAirportName }} ({{ departureAirportCode }})</span>
+                            {% if departureTerminal %}
+                            <span style="margin:0 10px;">|</span>
+                            <span>{{ departureTerminal }}</span>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <b>{{ arrivalDate }}</b>
+                            <b>{{ arrivalTime }}</b>
+                            <span style="margin:0 10px;">|</span>
+                            <span>{{ arrivalAirportName }} ({{ arrivalAirportCode }})</span>
+                            {% if arrivalTerminal %}
+                            <span style="margin:0 10px;">|</span>
+                            <span>{{ arrivalTerminal }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="padding_vertical">
+                        {% if bookingRef %}
+                        {{ BookingRef }}:
+                        <span>{{ bookingRef }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <br clear="all">
+            </div>
+        </div>
+    </div>
+    <div class="padding_vertical" id="remarks">
+        <div class="classTitle">
+            {{ FareRules }}
+        </div>
+        {% if saAmendmentPolicy %}
+        <div class="padding_vertical">
+            {{ AmendmentPolicy }}:<br>
+            {% for sAmendmentPolicy in saAmendmentPolicy %}
+            {{ sAmendmentPolicy }}<br>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if saRefundPolicy %}
+        <div class="padding_vertical">
+            {{ RefundPolicy }}:<br>
+            {% for sRefundPolicy in saRefundPolicy %}
+            {{ sRefundPolicy }}<br>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if saEndorsementPolicy %}
+        <div class="padding_vertical">
+            {{ EndorsementPolicy }}:<br>
+            {% for sEndorsementPolicy in saEndorsementPolicy %}
+            {{ sEndorsementPolicy }}<br>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if bookingClassCode %}
+        <div class="padding_vertical">
+            {{ BookingClass }} : {{ bookingClassCode }} {{ Class }}
+        </div>
+        {% endif %}
+        <div class="padding_vertical">
+            <b>{{ notices }}</b><br>
+            <b>{{ IATA }}</b><br>
+            {{ IataNotice }}:<br>
+            <a href="{{ IataLink }}" target="_blank"> {{ IataLink }}</a>
+        </div>
+    </div>
+</div>

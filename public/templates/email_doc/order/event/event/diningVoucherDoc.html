@@ -1,0 +1,64 @@
+{% extends '../eventVoucherDoc.html' %}
+{% block content %}
+<div id="summary">
+    <div class="border_bottom">
+        <div class="half_l">
+            {{ Description }}
+        </div>
+        <div class="half_r">
+            <table class="fare_table">
+                <tr>
+                    <td>{{ Type }}</td>
+                    <td>{{ Qty }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="border_bottom">
+        <div class="half_l">
+            <div style="line-height:1.5em;">
+                {{ eventName }}
+            </div>
+            <div class="color_grey">
+                {{ scheduleDate }}
+                {% if serviceClassName %}
+                <span style="margin:0 10px;">|</span>
+                {{ serviceClassName }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="half_r">
+            <table class="fare_table">
+                {% for oEventFare in oaEventFare %}
+                <tr>
+                    <td>{{ oEventFare.guestTypeName }}</td>
+                    <td>{{ oEventFare.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="padding_vertical" id="location">
+    <div class="classTitle">
+        {{ Location }}
+    </div>
+    <div class="padding_vertical color_grey">
+        {% for sEventInfo in aEventInfo %}
+        {{ sEventInfo }}<br>
+        {% endfor %}
+    </div>
+</div>
+<div class="padding_vertical" id="remarks">
+    <div class="classTitle">
+        {{ TermsAndConditions }}
+    </div>
+    <div class="padding_vertical">
+        {% for sPolicy in saPolicy %}
+        {{ sPolicy }}<br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

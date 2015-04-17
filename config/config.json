@@ -1,0 +1,89 @@
+{
+    "middleware": {
+        "static": {
+            "module": {
+                "arguments": [ "path:./.build" ]
+            }
+        },
+        "router": {
+            "module": {
+                "arguments": [
+                    {
+                        "directory": "path:./controllers"
+                    }
+                ]
+            }
+        },
+//        "expressView": {
+//            "priority": 100,
+//            "enabled": false,
+//            "module": {
+//                "name": "engine-munger/lib/expressView"
+//            }
+//        },
+        "fileNotFound": {
+            "enabled": true,
+            "priority": 130,
+            "module": {
+                "name": "kraken-js/middleware/404",
+                "arguments": [ "errors/404" ]
+            }
+        },
+        "serverError": {
+            "enabled": true,
+            "priority": 140,
+            "module": {
+                "name": "kraken-js/middleware/500",
+                "arguments": [ "errors/500" ]
+            }
+        },
+//        "session": {
+//            "enabled": true,
+//            "priority": 100,
+//            "module": {
+//                "name": "express-session",
+//                "arguments": [
+//                    {
+//                        "key": "",
+//                        "secret": "35cb2890c5560878c7199d88b92457776b7ecd9e",
+//                        "cookie": {
+//                            "path": "/",
+//                            "httpOnly": true,
+//                            "maxAge": 1200000
+//                        },
+//                        "resave": true,
+//                        "saveUninitialized": true,
+//                        "proxy": null
+//                    }
+//                ]
+//            }
+//        },
+        "appsec": {
+            "module": {
+                "name": "lusca",
+                "arguments": [
+                    {
+                        "csrf": false
+                    }
+                ]
+            }
+        },
+        "devtools": {
+            "enabled": true,
+            "priority": 35,
+            "module": {
+                "name": "kraken-devtools",
+                "arguments": [
+                    "path:./public",
+                    "path:./.build",
+                    {
+                        "copier": {
+                            "module": "kraken-devtools/plugins/copier",
+                            "files": "**/*"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

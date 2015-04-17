@@ -1,0 +1,20 @@
+{% if tplLayouts.header %}
+<!--<div class="clearfix container-fluid">-->
+<div class="col-xs-12" id="header">
+    {% include tplLayouts.header %}
+</div>
+<!--</div>-->
+{% endif %}
+<div class="clearfix container-fluid">
+    <div class="col-xs-12" id="container">
+        {% include tplLayouts.content %}
+    </div>
+</div>
+{% if tplLayouts.footer %}
+<div class="clearfix container-fluid bg-primary">
+    <div class="col-xs-12" id="footer">
+        {% include tplLayouts.footer %}
+    </div>
+</div>
+{% endif %}
+<div id="tgBackground"></div>

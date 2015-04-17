@@ -1,0 +1,24 @@
+<link href="http://{{tg.host}}/extend_css/emailDoc.css" rel="stylesheet" type="text/css">
+<div class="orderDocContainer">
+    <div id="head">
+        <div class="half_l">
+            {% if !isB2b %}
+            <img src="http://{{ tcfg.travelGlobalHostName }}/images/common/comlogo_travelglobal_03.png">
+            {% endif %}
+        </div>
+        <div class="half_r">{{ Voucher }}</div>
+        <div class="clear"></div>
+    </div>
+    <div id="contactInfo">
+        <div class="half_l">
+            <b>{{ Guest }} ：</b> {{ guestName }}<br>
+            <b>{{ BookingRef }} : </b>{{ supplierConfirmationCode }}
+        </div>
+        <div class="half_r">
+            <b>{{ Order }} :</b> {{ orderNo }}<br>
+            <b>{{ Date }}： </b>{{ printDate }}
+        </div>
+        <div class="clear"></div>
+    </div>
+    {% block content %}{% endblock %}
+</div>

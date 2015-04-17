@@ -1,0 +1,208 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+
+@font-face {
+    font-family: "Myriad Pro";
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    border: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.notice_text {
+    font-size:1.4em;
+}
+
+/***************************************************/
+/* Link Setting */
+/***************************************************/
+a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/***************************************************/
+/* Float Setting */
+/***************************************************/
+.float_l {
+    float: left;
+}
+
+.float_r {
+    float: right;
+}
+
+.half_l {
+    float: left;
+    max-width: 50%;
+}
+
+.half_r {
+    float: right;
+    max-width: 50%;
+}
+
+.clear {
+    clear: both;
+}
+
+/***************************************************/
+/* Padding Setting */
+/***************************************************/
+.padding_top {
+    padding-top: 10px;
+}
+
+.padding_bottom {
+    padding-bottom: 10px;
+}
+
+.padding_vertical {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/***************************************************/
+/* Color Setting */
+/***************************************************/
+.color_grey {
+    color: #999;
+}
+
+.color_cyan {
+    color: #00aeef;
+}
+
+.color_white {
+    color: white;
+}
+
+.color_green {
+    color: #7ac142;
+}
+
+.color_black {
+    color: #222;
+}
+
+.color_smokey {
+    color: #666;
+}
+
+/***************************************************/
+/* border Setting */
+/***************************************************/
+
+.border_top {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.border_bottom {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/***************************************************/
+/* OrderDoc Container Setting */
+/***************************************************/
+.orderDocContainer {
+    /*font-size: 10px;*/
+    font-family: "Oxygen", "Myriad Pro", Arial, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #ffffff;
+    /*width: 800px;*/
+    /*max-width: 800px; *//* For Isotope Responsive Resizing Browser */
+    /*min-width: 800px; *//* For Isotope Responsive Resizing Browser */
+}
+
+.orderDocContainer #head .half_r {
+    font-size: 4em;
+}
+
+.orderDocContainer #head, .orderDocContainer #contactInfo {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.orderDocContainer #contactInfo {
+    font-size: 1.4em;
+}
+
+.orderDocContainer #contactInfo .float_l {
+    padding-left: 10px;
+}
+
+.orderDocContainer #contactInfo .float_r {
+    padding-right: 10px;
+}
+
+.orderDocContainer .classTitle {
+    font-size: 1.4em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/***************************************************/
+/* Price Table Setting */
+/***************************************************/
+.price_table {
+    width: 300px;
+}
+
+.price_table tr {
+    vertical-align: top;
+}
+
+.price_table tr td:first-child, .price_table tr td:last-child {
+    width: 35%;
+}
+
+.price_table tr td:last-child {
+    text-align: right;
+}
+
+.price_table tr td:nth-child(2), .price_table tr td:nth-child(3) {
+    text-align: center;
+    width: 15%;
+}
+
+/***************************************************/
+/* Fare Table Setting */
+/***************************************************/
+.fare_table {
+    width: 150px;
+}
+
+.fare_table tr td:first-child {
+    width: 70%;
+}
+
+.fare_table tr td {
+    text-align: right;
+    border-bottom: 0;
+    padding: 3px;
+}

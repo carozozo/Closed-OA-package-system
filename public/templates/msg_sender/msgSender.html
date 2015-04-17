@@ -1,0 +1,72 @@
+<div class="" id="msgSender" style="width: 600px">
+    <h3 class="basic-title2">
+        <span set-lan="pMsgSender.pageTitle"></span>
+    </h3>
+
+    <div class="form-group" style="margin-top: 20px">
+        <label for="msgType">
+            <span set-lan="pMsgSender.MsgType"></span>
+        </label>
+        <select id="msgType"></select>
+    </div>
+
+    <form role="form" class="msgSender" id="emailSender">
+        <div class="basic-block">
+            <div class="form-group">
+                <label for="emailTo">
+                    <span set-lan="common.To"></span>
+                </label>
+                <input type="text" class="form-control" id="emailTo"/>
+            </div>
+            <div class="form-group">
+                <label for="emailCc">
+                    <span set-lan="pMsgSender.cc"></span>
+                </label>
+                <input type="text" class="form-control" id="emailCc"/>
+            </div>
+            <div class="form-group">
+                <label for="emailBcc">
+                    <span set-lan="pMsgSender.bcc"></span>
+                </label>
+                <input type="text" class="form-control" id="emailBcc"/>
+            </div>
+            <div class="form-group">
+                <label for="emailSubject">
+                    <span set-lan="common.Subject"></span>
+                </label>
+                <input type="text" class="form-control" id="emailSubject"/>
+            </div>
+            <div class="form-group">
+                <label for="emailTextContent">
+                    <span set-lan="common.Content"></span>
+                </label>
+                <textarea class="form-control" id="emailTextContent" style="height: 300px"></textarea>
+            </div>
+        </div>
+        <div class="text-right">
+            <button type="button" class="btn" id="emailSubmitBtn"></button>
+            <button type="button" class="btn" id="emailCleanBtn"></button>
+        </div>
+    </form>
+
+    <form role="form" class="msgSender" id="smsSender">
+        <div class="basic-block">
+            <div class="form-group">
+                <label for="smsTo">
+                    <span set-lan="common.To"></span>
+                </label>
+                <input type="text" class="form-control" id="smsTo"/>
+            </div>
+            <div class="form-group">
+                <label for="smsContent">
+                    <span set-lan="common.Content"></span>
+                </label>
+                <textarea class="form-control" id="smsContent" style="height: 300px"></textarea>
+            </div>
+        </div>
+        <div class="text-right">
+            <button type="button" class="btn" id="smsSubmitBtn"></button>
+            <button type="button" class="btn" id="smsCleanBtn"></button>
+        </div>
+    </form>
+</div>

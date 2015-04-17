@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+.build/
+node_modules/
+*.iml
+/npm-debug.log
+oa_log/
+oa_files
+/public/files

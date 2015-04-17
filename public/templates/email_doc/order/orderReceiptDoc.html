@@ -1,0 +1,279 @@
+<link href="http://{{tg.host}}/extend_css/emailDoc.css" rel="stylesheet" type="text/css">
+<div class="orderDocContainer">
+<div id="head">
+    <div class="half_l">
+        <img src="http://{{ tcfg.travelGlobalHostName }}/images/common/comlogo_travelglobal_03.png">
+    </div>
+    <div class="half_r">{{ Receipt }}</div>
+    <div class="clear"></div>
+</div>
+<div id="contactInfo">
+    <div class="half_l">
+        {{ contactPerson }}<br>
+        {{ contactEmail }}<br>
+        {{ contactPhone }}
+    </div>
+    <div class="half_r">
+        <b>{{ Order }} :</b> {{ orderNo }}<br>
+        <b>{{ PaymentDate }} :</b> {{ paymentSuccessDate }}<br>
+        <b>{{ PaymentAmount }} :</b> {{ paymentAmountFull }}<br>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="padding_vertical" id="summary">
+    <div class="border_bottom" style="font-size:2em;margin-bottom:10px;">
+        {{ Summary }}
+    </div>
+    <div class="border_bottom">
+        <div class="half_l">
+            {{ Description }}
+        </div>
+        <div class="half_r">
+            <table class="price_table">
+                <tr>
+                    <td>{{ UnitPrice }}</td>
+                    <td>{{ Type }}</td>
+                    <td>{{ Qty }}</td>
+                    <td>{{ Subtotal }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="clear"></div>
+    </div>
+    {% for oEvent in oaEvent %}
+    <div class="event padding_vertical">
+        <div class="half_l">
+            <div style="font-size:1.3em;">
+                {{ oEvent.eventName }}
+            </div>
+            <div class="color_grey">
+                {{ oEvent.scheduleDate }},&nbsp;
+                {{ oEvent.scheduleName }}&nbsp;
+                {{ oEvent.serviceClassName }}
+            </div>
+            <div class="color_grey">
+                {{ oEvent.eventAddress }}
+            </div>
+        </div>
+        <div class="half_r">
+            <table class="price_table">
+                {% for oEventFare in oEvent.oaEventFare %}
+                <tr>
+                    <td>{{ oEventFare.eachPriceFull }}</td>
+                    <td>{{ oEventFare.guestTypeName }}</td>
+                    <td>{{ oEventFare.quantity }}</td>
+                    <td>{{ oEventFare.totalPriceFull }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="clear"></div>
+        <div class="border_bottom color_grey">
+            {% if oEvent.saPolicy %}
+            {{ TermsAndConditions }}:<br>
+            {% for sPolicy in oEvent.saPolicy %}
+            {{ sPolicy }}<br>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% for oHotel in oaHotel %}
+    <div class="hotel padding_vertical">
+        <div class="half_l">
+            <div style="font-size:1.3em;">
+                {{ oHotel.hotelName }} - {{ oHotel.roomTypeName }} - {{ oHotel.bedTypeName }}
+            </div>
+            <div>
+                {{ CheckInDate }} :
+                {{ oHotel.checkInDate }}
+            </div>
+            <div>
+                {{ CheckOutDate }} :
+                {{ oHotel.checkOutDate }}
+            </div>
+            <div>
+                {{ oHotel.nights }} {{ Nights }}
+            </div>
+            <div class="color_grey">
+                {{ oHotel.hotelComplimentaryServices }}
+            </div>
+            <div class="color_grey">
+                {{ oHotel.hotelAddress }}
+            </div>
+            {% for oHotelRoomRate in oHotel.oaHotelRoomRate %}
+            <div style="color: #aaaaaa;font-size:0.8em;">
+                {# oHotelRoomRate.reservationDate #}
+                {{ oHotelRoomRate.reservationStartDate }}
+                {% if oHotelRoomRate.reservationStartDate !== oHotelRoomRate.reservationEndDate %}
+                -
+                {{ oHotelRoomRate.reservationEndDate }}
+                {% endif %}
+                &nbsp;
+                {{ RoomRate }}: {{ oHotelRoomRate.eachPriceFull}}
+                <span style="margin:0 10px;">x</span>
+                {{ oHotelRoomRate.rooms}} {{ Rooms }}
+                <span style="margin:0 10px;">x</span>
+                {{ oHotelRoomRate.nights}} {{ Nights }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="half_r">
+            <table class="price_table">
+                <tr>
+                    <td>{{ oHotel.eachPriceFull }}</td>
+                    <td>&nbsp;</td>
+                    <td>{{ oHotel.rooms }}</td>
+                    <td>{{ oHotel.totalPriceFull }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="clear"></div>
+        <div class="border_bottom color_grey">
+            {% if oHotel.saPolicy %}
+            {{ TermsAndConditions }}:<br>
+            <!--<pre>{{ oEvent.policy }}</pre>-->
+            {% for sPolicy in oHotel.saPolicy %}
+            {{ sPolicy }}<br>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% for oFlight in oaFlight %}
+    <div class="flight padding_vertical">
+        <div class="half_l">
+            <div class="notice_text">
+                {{ oFlight.departureCityName }} {{ To }} {{ oFlight.arrivalCityName }}
+            </div>
+            <div class="color_grey">
+                <img src="http://{{ tcfg.travelGlobalHostName }}/images/airline/{{ oFlight.airlineCode }}.svg" width="20px" height="20px">
+                {{ oFlight.airlineName }}&nbsp; {{ oFlight.airlineCode }}{{ oFlight.flightNumber }}
+            </div>
+            <div class="color_grey">
+                {{ oFlight.departureDate }} | {{ oFlight.cabinClass }}
+            </div>
+        </div>
+        <div class="half_r">
+            <table class="price_table">
+                {% for oFlightFare in oFlight.oaFlightFare %}
+                <tr>
+                    <td>
+                        {{ oFlightFare.eachPriceFull }}
+                        {% if oFlightFare.chargePriceFull %}
+                        <br>
+                        +{{ oFlightFare.chargePriceFull }}
+                        {% endif %}
+                    </td>
+                    <td>{{ oFlightFare.guestTypeName }}</td>
+                    <td>{{ oFlightFare.quantity }}</td>
+                    <td>{{ oFlightFare.totalPriceFull }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="clear"></div>
+        <div class="border_bottom color_grey">
+            {{ FareRules }}:<br>
+            {% if oFlight.saAmendmentPolicy %}
+            <div class="padding_vertical">
+                {{ AmendmentPolicy }}:<br>
+                {% for sAmendmentPolicy in oFlight.saAmendmentPolicy %}
+                {{ sAmendmentPolicy }}<br>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if oFlight.saRefundPolicy %}
+            <div class="padding_vertical">
+                {{ RefundPolicy }}:<br>
+                {% for sRefundPolicy in oFlight.saRefundPolicy %}
+                {{ sRefundPolicy }}<br>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if oFlight.saEndorsementPolicy %}
+            <div class="padding_vertical">
+                {{ EndorsementPolicy }}:<br>
+                {% for sEndorsementPolicy in oFlight.saEndorsementPolicy %}
+                {{ sEndorsementPolicy }}<br>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="padding_vertical">
+                {{ BookingClass }} : {{ oFlight.bookingClassCode }} {{ Class }}
+                <br>
+                <b>{{ oFlight.notices }}</b>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="notice_text" id="priceInfo">
+    <div class="border_bottom">
+        <div class="float_r text_right">
+            <table class="text_right">
+                <tbody>
+                <tr>
+                    <td style="padding-right: 20px;">
+                        {{ MerchandiseSubtotal }} :
+                    </td>
+                    <td>
+                        {{ merchandiseSubtotalFull }}
+                    </td>
+                </tr>
+                {% if couponFull %}
+                <tr>
+                    <td style="padding-right: 20px">
+                        {{ Coupon }} :
+                    </td>
+                    <td>
+                        -{{ couponFull }}
+                    </td>
+                </tr>
+                {% endif %}
+                <tr style="font-size:1.8em;">
+                    <td style="padding-right: 20px;">
+                        {{ Total }} :
+                    </td>
+                    <td>
+                        {{ paymentAmountFull }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="border_bottom">
+        <div class="float_r text_right">
+            <b>{{ PaymentInformation }} - {{ paymentType }}</b>
+            <br><br>
+            {% if eWalletAmountFull %}
+            <div>{{ Ewallet }} - {{ eWalletAmountFull }}</div>
+            {% endif %}
+            {% if creditCardAmountFull %}
+            <div>{{ CreditCard }} - {{ creditCardAmountFull }}</div>
+            {% endif %}
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="padding_vertical text_right" id="companyInfo">
+    <div class="padding_vertical">
+        <img src="http://{{ tg.host }}/img/common/travelglobal_chop.gif" width="100">
+    </div>
+    <div>
+        <div class="float_r" style="font-size:2em;font-weight:bold;border-top:1px solid #333; padding-left:15px;">
+            {{ tgCompanyName }}
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="notice_text">
+        {{ tgCompanyAddr }}
+        <br>
+        {{ tgCompanyPhone }}
+        <br>
+        <a class="color_cyan" href="mailto:service@travelglobal.com">service@travelglobal.com</a>
+    </div>
+</div>
+</div>

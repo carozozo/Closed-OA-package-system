@@ -1,0 +1,77 @@
+<link href="http://{{tg.host}}/extend_css/emailDoc.css" rel="stylesheet" type="text/css">
+<div class="orderDocContainer">
+    <div id="head">
+        <div class="half_l">
+        </div>
+        <div class="half_r">{{ HotelVoucher }}</div>
+        <div class="clear"></div>
+    </div>
+    <div id="contactInfo">
+        <div class="half_l">
+            <b>{{ Guest }} ：</b> {{ guestName }}
+        </div>
+        <div class="half_r">
+            <b>{{ Order }} :</b> {{ orderNo }}<br>
+            <b>{{ Date }}： </b>{{ printDate }}
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="summary">
+        <div class="border_bottom">
+            <span class="notice_text">{{ hotelName }}</span><br>
+            <span class="notice_text">{{ localizedHotelName }}</span><br>
+            <span>{{ hotelAddress }}</span><br>
+            <span>{{ localizedHotelAddress }}</span>
+        </div>
+        <div class="border_bottom">
+            <div class="half_l">
+                {{ Description }}
+            </div>
+            <div class="half_r">
+                {{ RoomQty }}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="border_bottom">
+            <div class="half_l">
+                <div class="notice_text">{{ roomType }}</div>
+                <div class="">{{ hotelComplimentaryServices }}</div>
+                <br>
+                <div class="">{{ CheckInDate }} ： {{ checkInDate }}</div>
+                <div class="">{{ CheckOutDate }} ： {{ checkOutDate }}</div>
+                <div class="">{{ nights }} {{ Nights }}</div>
+            </div>
+            <div class="half_r">
+                {{ rooms }}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    {% if saRemark %}
+    <div class="border_bottom" id="remarks">
+        <div class="classTitle">
+            {{ HotelRemarks }}
+        </div>
+        <div class="padding_vertical">
+            {% for sRemark in saRemark %}
+            {{ sRemark }}<br>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% if saPolicy %}
+    <div class="border_bottom" id="termsAndConditions">
+        <div class="classTitle">
+            {{ TermsAndConditions }}
+        </div>
+        <div class="padding_vertical">
+            {% for sPolicy in saPolicy %}
+            {{ sPolicy }}<br>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <div class="padding_vertical">
+        {{ notices }}
+    </div>
+</div>

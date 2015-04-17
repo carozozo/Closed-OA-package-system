@@ -1,0 +1,107 @@
+<div class="panel panel-default" id="msgRecordListPage">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-2">
+                <span class="panel-title" set-lan="pMsgRecord.list.pageTitle"></span>
+            </div>
+            <div class="col-xs-8 form-inline text-center" id="search">
+                <span id="searchSpan1">
+                    <label><span set-lan="pMsgRecord.list.MainType"></span>:</label>
+                    <select class="form-control" id="mainType">
+                    </select>
+                </span>
+                <span id="searchSpan2">
+                    <label><span set-lan="pMsgRecord.list.SubType"></span>:</label>
+                    <select class="form-control" id="subType">
+                    </select>
+                </span>
+                <span id="searchBtnSpan">
+                    <button type="button" id="searchBtn"></button>
+                    <button type="button" id="resetBtn"></button>
+                </span>
+            </div>
+            <div class="col-xs-2 text-right">
+                <a id="searchLink">
+                <span class="glyphicon glyphicon-search"></span> <span set-lan="mBtn.AdvancedSearch"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div id="fullSearch">
+            <div class="row">
+                <div class="col-xs-3">
+                    <span id="fullSearchSpan1"></span>
+                </div>
+                <div class="col-xs-3">
+                    <span id="fullSearchSpan2"></span>
+                </div>
+                <div class="col-xs-3">
+                    <label><span set-lan="common.Status"></span>:</label>
+                    <select class="form-control" id="status">
+                        <option value="">All</option>
+                        <option value="success">Success</option>
+                        <option value="error">Error</option>
+                    </select>
+                </div>
+                <div class="col-xs-3">
+                </div>
+            </div>
+            <div class="basic-btn-div">
+                <span id="fullSearchBtnSpan"></span>
+            </div>
+        </div>
+        <div id="msgRecordList">
+            <table class="table table-bordered" id="msgRecordListTable">
+                <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th set-lan="pMsgRecord.list.MainType"></th>
+                    <th set-lan="pMsgRecord.list.SubType"></th>
+                    <th set-lan="common.Status"></th>
+                    <th set-lan="common.From"></th>
+                    <th set-lan="common.To"></th>
+                    <th set-lan="common.Subject"></th>
+                    <th set-lan="common.Content"></th>
+                    <th set-lan="common.CreatedAt"></th>
+                    <th set-lan="common.CreatedBy"></th>
+                    <th class="text-right">
+                        <button id="sendMsgBtn"></button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- the basic-dtaObj is used for module $.mListTable to set list-->
+                <tr class="basic-dataObj userData">
+                    <td class="index">
+                    </td>
+                    <td class="mainType">
+                    </td>
+                    <td class="subType">
+                    </td>
+                    <td class="status">
+                    </td>
+                    <td class="msgFrom">
+                    </td>
+                    <td class="msgTo">
+                    </td>
+                    <td class="subject">
+                    </td>
+                    <td class="content">
+                    </td>
+                    <td class="recordCreatedAt">
+                    </td>
+                    <td class="recordCreatedBy">
+                    </td>
+                    <td class="text-right">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div id="pagination"></div>
+        </div>
+    </div>
+    {% include '../../msg_sender/msgSender.html' %}
+</div>
